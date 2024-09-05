@@ -4,13 +4,9 @@ import 'package:a_strong/fitness_app/models/tabIcon_data.dart';
 import 'package:a_strong/main.dart';
 import 'package:flutter/material.dart';
 
-import '../../main.dart';
-import '../models/tabIcon_data.dart';
-
 class BottomBarView extends StatefulWidget {
   const BottomBarView(
-      {Key? key, this.tabIconsList, this.changeIndex, this.addClick})
-      : super(key: key);
+      {super.key, this.tabIconsList, this.changeIndex, this.addClick});
 
   final Function(int index)? changeIndex;
   final Function()? addClick;

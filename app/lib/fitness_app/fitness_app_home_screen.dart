@@ -1,6 +1,8 @@
+import 'package:a_strong/Models/model.dart';
 import 'package:a_strong/fitness_app/models/tabIcon_data.dart';
 import 'package:a_strong/fitness_app/training/training_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'bottom_navigation_view/bottom_bar_view.dart';
 import 'fitness_app_theme.dart';
 import 'my_diary/my_diary_screen.dart';
@@ -12,6 +14,7 @@ class FitnessAppHomeScreen extends StatefulWidget {
 
 class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
     with TickerProviderStateMixin {
+  Usuario usuario = Usuario();
   AnimationController? animationController;
 
   List<TabIconData> tabIconsList = TabIconData.tabIconsList;
@@ -29,7 +32,7 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
 
     animationController = AnimationController(
         duration: const Duration(milliseconds: 600), vsync: this);
-    tabBody = MyDiaryScreen(animationController: animationController);
+    tabBody = MyDiaryScreen(animationController: animationController, usuario: usuario);
     super.initState();
   }
 
@@ -65,6 +68,14 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
   }
 
   Future<bool> getData() async {
+    final prefs = await SharedPreferences.getInstance();
+    try {
+      usuario = Usuario.fromBase64ToUsuario(prefs.getString('Usuario') ?? '');
+      //setState(() {});
+      print(usuario.toJson());
+    } catch (e) {
+      print(e);
+    }
     await Future<dynamic>.delayed(const Duration(milliseconds: 200));
     return true;
   }
@@ -86,7 +97,7 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
                 }
                 setState(() {
                   tabBody =
-                      MyDiaryScreen(animationController: animationController);
+                      MyDiaryScreen(animationController: animationController, usuario: usuario);
                 });
               });
             } else if (index == 1 || index == 3) {

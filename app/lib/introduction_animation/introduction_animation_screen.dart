@@ -1,6 +1,6 @@
-import 'package:a_strong/fitness_app/fitness_app_home_screen.dart';
 import 'package:a_strong/introduction_animation/components/care_view.dart';
 import 'package:a_strong/introduction_animation/components/center_next_button.dart';
+import 'package:a_strong/introduction_animation/components/custom_sign_in.dart';
 import 'package:a_strong/introduction_animation/components/mood_diary_vew.dart';
 import 'package:a_strong/introduction_animation/components/relax_view.dart';
 import 'package:a_strong/introduction_animation/components/splash_view.dart';
@@ -18,6 +18,7 @@ class IntroductionAnimationScreen extends StatefulWidget {
 
 class _IntroductionAnimationScreenState
     extends State<IntroductionAnimationScreen> with TickerProviderStateMixin {
+  bool isSignInDialogShown = false;
   AnimationController? _animationController;
 
   @override
@@ -113,11 +114,10 @@ class _IntroductionAnimationScreenState
   }
 
   void _signUpClick() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(
-        builder: (context) => FitnessAppHomeScreen(),
-      ),
-    );
+    customSigninDialog(context, onClosed: (_) {
+      setState(() {
+        isSignInDialogShown = false;
+      });
+    });
   }
 }

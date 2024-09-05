@@ -8,7 +8,8 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   final prefs = await SharedPreferences.getInstance();
   
-  bool isLogged = prefs.getBool('isLogged') ?? false;
+  String usuario = prefs.getString('Usuario') ?? '';
+  bool isLogged = usuario.isNotEmpty;
   runApp(MyApp(
     home: isLogged ? FitnessAppHomeScreen() : const IntroductionAnimationScreen(),
   ));
