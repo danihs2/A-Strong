@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:a_strong/Models/workouts.dart';
+import 'package:a_strong/fitness_app/ejercicios/Widgets/historial.dart';
 import 'package:a_strong/fitness_app/ejercicios/Widgets/template_selector.dart';
 import 'package:a_strong/fitness_app/ejercicios/Widgets/work_selector.dart';
 import 'package:flutter/material.dart';
@@ -56,6 +57,7 @@ class _WorkoutState extends State<Workout> {
               },
             ),
           ),
+          const SizedBox(height: 20),
           ElevatedButton(
             onPressed: () async {
               // Your code to save the data
@@ -76,6 +78,7 @@ class _WorkoutState extends State<Workout> {
             },
             child: const Text('Guardar Template'),
           ),
+          const SizedBox(height: 20),
           ElevatedButton(
             onPressed: () {
               // Navegar a la pantalla de templates
@@ -88,6 +91,20 @@ class _WorkoutState extends State<Workout> {
             },
             child: const Text('Ver Templates'),
           ),
+          const SizedBox(height: 20),
+          ElevatedButton(
+            onPressed: () {
+              // Navegar a la pantalla de templates
+              Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => HistorialWidget()
+                )
+              );
+            },
+            child: const Text('Historial'),
+          ),
+          const SizedBox(height: 20),
           ElevatedButton(
             onPressed: () {
               // Navegar a la pantalla de templates

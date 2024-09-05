@@ -1,3 +1,4 @@
+import 'package:a_strong/fitness_app/ejercicios/workout.dart';
 import 'package:a_strong/main.dart';
 import 'package:flutter/material.dart';
 import '../fitness_app_theme.dart';
@@ -28,7 +29,7 @@ class WorkoutView extends StatelessWidget {
                     FitnessAppTheme.nearlyDarkBlue,
                     HexColor("#6F56E8")
                   ], begin: Alignment.topLeft, end: Alignment.bottomRight),
-                  borderRadius: BorderRadius.only(
+                  borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(8.0),
                       bottomLeft: Radius.circular(8.0),
                       bottomRight: Radius.circular(8.0),
@@ -36,7 +37,7 @@ class WorkoutView extends StatelessWidget {
                   boxShadow: <BoxShadow>[
                     BoxShadow(
                         color: FitnessAppTheme.grey.withOpacity(0.6),
-                        offset: Offset(1.1, 1.1),
+                        offset: const Offset(1.1, 1.1),
                         blurRadius: 10.0),
                   ],
                 ),
@@ -46,7 +47,7 @@ class WorkoutView extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text(
+                      const Text(
                         'Next workout',
                         textAlign: TextAlign.left,
                         style: TextStyle(
@@ -57,10 +58,10 @@ class WorkoutView extends StatelessWidget {
                           color: FitnessAppTheme.white,
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(top: 8.0),
-                        child: const Text(
-                          'Legs Toning and\nGlutes Workout at Home',
+                      const Padding(
+                        padding: EdgeInsets.only(top: 8.0),
+                        child: Text(
+                          'Genial Sigue con tu\nPrograma de Entrenamiento',
                           textAlign: TextAlign.left,
                           style: TextStyle(
                             fontFamily: FitnessAppTheme.fontName,
@@ -71,7 +72,7 @@ class WorkoutView extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 32,
                       ),
                       Padding(
@@ -80,17 +81,17 @@ class WorkoutView extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.end,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            Padding(
-                              padding: const EdgeInsets.only(left: 4),
+                            const Padding(
+                              padding: EdgeInsets.only(left: 4),
                               child: Icon(
                                 Icons.timer,
                                 color: FitnessAppTheme.white,
                                 size: 16,
                               ),
                             ),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 4.0),
-                              child: const Text(
+                            const Padding(
+                              padding: EdgeInsets.only(left: 4.0),
+                              child: Text(
                                 '68 min',
                                 textAlign: TextAlign.center,
                                 style: TextStyle(
@@ -102,7 +103,7 @@ class WorkoutView extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            Expanded(
+                            const Expanded(
                               child: SizedBox(),
                             ),
                             Container(
@@ -113,16 +114,28 @@ class WorkoutView extends StatelessWidget {
                                   BoxShadow(
                                       color: FitnessAppTheme.nearlyBlack
                                           .withOpacity(0.4),
-                                      offset: Offset(8.0, 8.0),
+                                      offset: const Offset(8.0, 8.0),
                                       blurRadius: 8.0),
                                 ],
                               ),
                               child: Padding(
                                 padding: const EdgeInsets.all(0.0),
-                                child: Icon(
-                                  Icons.arrow_right,
-                                  color: HexColor("#6F56E8"),
-                                  size: 44,
+                                child: IconButton(
+                                  icon: Icon(
+                                    Icons.arrow_right,
+                                    color: HexColor("#6F56E8"),
+                                    size: 44,
+                                  ),
+                                  onPressed: () {
+                                    // Acción al presionar el botón
+                                    // Ir a la pantalla de workout
+                                    Navigator.push(
+                                      context,
+                                      MaterialPageRoute(
+                                        builder: (context) => Workout(),
+                                      ),
+                                    );
+                                  },
                                 ),
                               ),
                             )

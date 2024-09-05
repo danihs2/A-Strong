@@ -1,3 +1,4 @@
+import 'package:a_strong/fitness_app/ejercicios/Widgets/ejercicio_detalle.dart';
 import 'package:flutter/material.dart';
 
 import '../fitness_app_theme.dart';
@@ -17,16 +18,17 @@ class _AreaListViewState extends State<AreaListView>
     with TickerProviderStateMixin {
   AnimationController? animationController;
   List<String> areaListData = <String>[
-    'assets/fitness_app/area1.png',
-    'assets/fitness_app/area2.png',
-    'assets/fitness_app/area3.png',
-    'assets/fitness_app/area1.png',
+    'assets/ejercicios/1.jpeg',
   ];
 
   @override
   void initState() {
     animationController = AnimationController(
         duration: const Duration(milliseconds: 2000), vsync: this);
+    // Hacer un for de 1 hasta 42 para agregar las imagenes
+    for (int i = 2; i <= 42; i++) {
+      areaListData.add('assets/ejercicios/$i.jpeg');
+    }
     super.initState();
   }
 
@@ -55,6 +57,12 @@ class _AreaListViewState extends State<AreaListView>
                       left: 16, right: 16, top: 16, bottom: 16),
                   physics: const BouncingScrollPhysics(),
                   scrollDirection: Axis.vertical,
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    mainAxisSpacing: 24.0,
+                    crossAxisSpacing: 24.0,
+                    childAspectRatio: 1.0,
+                  ),
                   children: List<Widget>.generate(
                     areaListData.length,
                     (int index) {
@@ -68,18 +76,24 @@ class _AreaListViewState extends State<AreaListView>
                         ),
                       );
                       animationController?.forward();
-                      return AreaView(
-                        imagepath: areaListData[index],
-                        animation: animation,
-                        animationController: animationController!,
+                      return GestureDetector(
+                        onTap: () {
+                          print("click to: $index");
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => EjercicioDetalle(idRecibidoDelWidget: index),
+                            ),
+                          );
+                        },
+                        child: AreaView(
+                          index: index,
+                          imagepath: areaListData[index],
+                          animation: animation,
+                          animationController: animationController!,
+                        ),
                       );
                     },
-                  ),
-                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                    crossAxisCount: 2,
-                    mainAxisSpacing: 24.0,
-                    crossAxisSpacing: 24.0,
-                    childAspectRatio: 1.0,
                   ),
                 ),
               ),
@@ -97,11 +111,13 @@ class AreaView extends StatelessWidget {
     this.imagepath,
     this.animationController,
     this.animation,
+    required this.index,
   }) : super(key: key);
 
   final String? imagepath;
   final AnimationController? animationController;
   final Animation<double>? animation;
+  final int? index;
 
   @override
   Widget build(BuildContext context) {
@@ -136,7 +152,15 @@ class AreaView extends StatelessWidget {
                   hoverColor: Colors.transparent,
                   borderRadius: const BorderRadius.all(Radius.circular(8.0)),
                   splashColor: FitnessAppTheme.nearlyDarkBlue.withOpacity(0.2),
-                  onTap: () {},
+                  onTap: () {
+                    print("click to: $imagepath");
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => EjercicioDetalle(idRecibidoDelWidget: index!),
+                      ),
+                    );
+                  },
                   child: Column(
                     children: <Widget>[
                       Padding(
