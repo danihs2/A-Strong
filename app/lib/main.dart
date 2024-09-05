@@ -34,6 +34,7 @@ class _MyAppState extends State<MyApp> {
         primarySwatch: Colors.blue,
         textTheme: AppTheme.textTheme,
         platform: TargetPlatform.iOS,
+        // pueda escribir ñ para español
       ),
       home: widget.home,
     );

@@ -1,4 +1,5 @@
 import 'package:a_strong/Models/model.dart';
+import 'package:a_strong/fitness_app/ejercicios/workout.dart';
 import 'package:a_strong/fitness_app/models/tabIcon_data.dart';
 import 'package:a_strong/fitness_app/training/training_screen.dart';
 import 'package:flutter/material.dart';
@@ -88,7 +89,14 @@ class _FitnessAppHomeScreenState extends State<FitnessAppHomeScreen>
         ),
         BottomBarView(
           tabIconsList: tabIconsList,
-          addClick: () {},
+          addClick: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => Workout()
+              ),
+            );
+          },
           changeIndex: (int index) {
             if (index == 0 || index == 2) {
               animationController?.reverse().then<dynamic>((data) {

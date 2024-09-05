@@ -43,6 +43,7 @@ dependencies:
   provider: ^6.1.2
   flutter_svg: ^2.0.10+1
   rive: ^0.13.13
+  fluttertoast: ^8.2.8
 
 dev_dependencies:
   flutter_test:
@@ -75,6 +76,7 @@ flutter:
     - assets/introduction_animation/
     - assets/icons/
     - assets/RiveAssets/
+    - assets/ejercicios/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
