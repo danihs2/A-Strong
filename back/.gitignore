@@ -1,0 +1,17 @@
+# Archivos y directorios generados por Python
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+# Archivos de configuración local
+*.env
+
+# Archivos de caché
+*.log
+
+# Configuración de IDEs
+.idea/
+
+# Otros
+*.DS_Store
