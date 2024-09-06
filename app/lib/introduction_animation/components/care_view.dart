@@ -107,7 +107,7 @@ class CareView extends StatelessWidget {
                 padding:
                     EdgeInsets.only(left: 64, right: 64, bottom: 16, top: 16),
                 child: Text(
-                  "Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do eiusmod tempor incididunt ut labore",
+                  "El bienestar físico es el equilibrio entre la mente y el cuerpo, es sentirse bien con uno mismo y con el entorno",
                   textAlign: TextAlign.center,
                 ),
               ),

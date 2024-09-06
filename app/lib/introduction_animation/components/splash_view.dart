@@ -45,7 +45,7 @@ class _SplashViewState extends State<SplashView> {
             const Padding(
               padding: EdgeInsets.only(left: 64, right: 64),
               child: Text(
-                "Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do eiusmod tempor incididunt ut labore",
+                "Nos alegra que te unas a nuestra comunidad de personas que buscan mejorar su salud y alcanzar sus metas fitness",
                 textAlign: TextAlign.center,
               ),
             ),

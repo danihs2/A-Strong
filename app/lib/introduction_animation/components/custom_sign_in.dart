@@ -24,7 +24,7 @@ Future<Object?> customSigninDialog(BuildContext context, {required ValueChanged<
         builder: (BuildContext context, StateSetter setState) {
           return Center(
             child: Container(
-              height: 700,
+              height: 825,
               margin: const EdgeInsets.symmetric(horizontal: 5),
               padding: const EdgeInsets.symmetric(vertical: 16, horizontal: 16),
               decoration: BoxDecoration(

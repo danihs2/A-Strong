@@ -39,6 +39,7 @@ class _EjercicioDetalleState extends State<EjercicioDetalle> {
                 padding: EdgeInsets.all(16.0),
                 children: [
                   Image.asset('assets/ejercicios/${_ejercicioFuture['noImagen']}.jpeg'),
+                  Text(_ejercicioFuture['nombre']),
                   SizedBox(height: 16.0),
                   Text(_ejercicioFuture['descripcion']),
                   SizedBox(height: 16.0),

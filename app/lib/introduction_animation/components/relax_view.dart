@@ -86,7 +86,7 @@ class RelaxView extends StatelessWidget {
                   padding:
                       EdgeInsets.only(left: 64, right: 64, top: 16, bottom: 16),
                   child: Text(
-                    "Lorem ipsum dolor sit amet,consectetur adipiscing elit,sed do eiusmod tempor incididunt ut labore",
+                    "La salud integral no es solo la uasencia de enfermedad sino el bienestar físico, mental y emocional",
                     textAlign: TextAlign.center,
                   ),
                 ),

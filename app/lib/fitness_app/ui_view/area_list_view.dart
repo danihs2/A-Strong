@@ -82,7 +82,7 @@ class _AreaListViewState extends State<AreaListView>
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => EjercicioDetalle(idRecibidoDelWidget: index),
+                              builder: (context) => EjercicioDetalle(idRecibidoDelWidget: index+1),
                             ),
                           );
                         },
